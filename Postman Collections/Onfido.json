@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "5d6ef192-eeeb-4dee-8e13-58c1cf930aca",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Applicant",
+			"id": "a5f8db05-4819-4120-a0ab-a1739be40685",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=api_sandbox.QxPijqhbmVD.-6G5apYqR8UoGA3Ie_HvZru97euklSXh"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"first_name\": \"Arushi\",\n  \"last_name\": \"Agrawal\",\n  \"dob\": \"1996-03-25\",\n  \"address\": {\n    \"building_number\": \"100\",\n    \"street\": \"Main Street\",\n    \"town\": \"Indore\",\n    \"postcode\": \"452010\",\n    \"country\": \"IND\"\n  }\n}"
+				},
+				"url": "https://api.eu.onfido.com/v3.6/applicants/"
+			},
+			"response": []
+		},
+		{
+			"name": "document upload",
+			"id": "7d61e959-721c-4508-a9d8-5b0e470018b7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token token=api_sandbox.QxPijqhbmVD.-6G5apYqR8UoGA3Ie_HvZru97euklSXh",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "driving_licence",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/aarushi/Desktop/sample_driving_licence.png"
+						},
+						{
+							"key": "applicant_id",
+							"value": "e7a19f8c-5749-4232-b9cd-79fb3dad54bc",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://api.eu.onfido.com/v3.6/documents"
+			},
+			"response": []
+		},
+		{
+			"name": " creating Check",
+			"id": "0a4cb475-e90a-410b-a103-8d35596c21f6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token token=api_sandbox.QxPijqhbmVD.-6G5apYqR8UoGA3Ie_HvZru97euklSXh",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"report_names\": [\n    \"document\",\n    \"document_with_driving_licence_information\"\n  ],\n  \"applicant_id\": \"e7a19f8c-5749-4232-b9cd-79fb3dad54bc\"\n}"
+				},
+				"url": "https://api.eu.onfido.com/v3.6/checks"
+			},
+			"response": []
+		}
+	]
+}
